@@ -47,7 +47,11 @@ struct BikeListView: View {
         .frame(height: 20)
     }
     .padding(.top)
-    
+    .onAppear {
+      if let bikes = stravaAuthService.user?.bikes {
+        bikeList.bikes = bikes
+      }
+    }
   }
 }
 
